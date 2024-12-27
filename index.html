@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSON Formatter</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script>
+    <link rel="stylesheet" href="./styles.css">
+</head>
+
+<body class="bg-gray-900 text-gray-100 min-h-screen flex flex-col">
+    <header class="bg-gray-800 p-4">
+        <h1 class="text-2xl font-bold text-center">JSON Formatter</h1>
+    </header>
+
+    <main class="flex-grow flex items-center justify-center p-6">
+        <div class="bg-gray-800 p-6 rounded-lg shadow-lg w-full max-w-6xl">
+            <div class="grid grid-cols-1 gap-6">
+                <div>
+                    <h2 class="text-xl font-semibold mb-2">JSON Input</h2>
+                    <div class="file-upload-wrapper">
+                        <button class="file-upload-button" type="button">Select JSON File</button>
+                        <input type="file" id="jsonFile" class="file-upload-input" accept=".json">
+                        <span id="file-upload-text" class="file-upload-text">No file chosen</span>
+                    </div>
+                    <textarea id="jsonInput" class="resizable w-full p-2 border rounded mt-4 bg-gray-700 text-gray-200 focus:ring-2 focus:ring-blue-500" placeholder="Paste your JSON here..."></textarea>
+                </div>
+                <div>
+                    <h2 class="text-xl font-semibold mb-2">Formatted JSON</h2>
+                    <pre id="jsonOutput" class="resizable w-full p-2 border rounded mt-4 bg-gray-700 overflow-auto"></pre>
+                    <div class="flex justify-end mt-4">
+                        <button id="formatButton" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline mr-2">Format JSON</button>
+                        <button id="copyButton" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline mr-2" data-clipboard-target="#jsonOutput">Copy JSON</button>
+                        <button id="clearButton" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Clear</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="bg-gray-800 p-4 text-center">
+        <p>&copy; <span id="currentYear"></span> JSON Formatter</p>
+    </footer>
+
+    <script src="./main.js"></script>
+</body>
+</html>
